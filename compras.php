@@ -6,7 +6,7 @@ $compras = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 	<div class="col-xs-12">
-		<h1>Compras</h1>
+		<h1>Factura</h1>
 		<div>
 			<a class="btn btn-success" href="./comprar.php">Nueva Compra <i class="fa fa-plus"></i></a>
 		</div>
@@ -18,8 +18,8 @@ $compras = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					<th>Fecha</th>
 					<th>Productos comprados</th>
 					<th>Total</th>
-					<th>Ticket</th>
-					<th>Eliminar</th>
+
+
 				</tr>
 			</thead>
 			<tbody>
@@ -50,8 +50,8 @@ $compras = $sentencia->fetchAll(PDO::FETCH_OBJ);
 						</table>
 					</td>
 					<td><?php echo $compra->total ?></td>
-					<td><a class="btn btn-info" href="<?php echo "imprimirTicket.php?id=" . $compra->id?>"><i class="fa fa-print"></i></a></td>
-					<td><a class="btn btn-danger" href="<?php echo "eliminarCompra.php?id=" . $compra->id?>"><i class="fa fa-trash"></i></a></td>
+					
+					
 				</tr>
 				<?php } ?>
 			</tbody>

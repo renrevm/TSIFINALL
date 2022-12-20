@@ -5,7 +5,7 @@ if (!isset($_SESSION["carrito"])) $_SESSION["carrito"] = [];
 $granTotal = 0;
 ?>
 <div class="col-xs-12">
-	<h1>Comprar</h1>
+	<h1>Comprar Productos</h1>
 	<?php
 	if (isset($_GET["status"])) {
 		if ($_GET["status"] === "1") {
