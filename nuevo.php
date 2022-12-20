@@ -14,7 +14,7 @@ $existencia = $_POST["existencia"];
 
 $sentencia = $base_de_datos->prepare("INSERT INTO productos(codigo, descripcion, precioVenta, precioCompra, existencia) VALUES (?, ?, ?, ?, ?);");
 $resultado = $sentencia->execute([$codigo, $descripcion, $precioVenta, $precioCompra, $existencia]);
-sss
+
 if($resultado === TRUE){
 	header("Location: ./listar.php");
 	exit;
