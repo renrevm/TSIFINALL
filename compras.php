@@ -1,8 +1,8 @@
 <?php include_once "encabezado.php" ?>
 <?php
 include_once "base_de_datos.php";
-$sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id;");
-$ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+$sentencia = $base_de_datos->query("SELECT compras.total, compras.fecha, compras.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion, '..', productos_comprados.cantidad SEPARATOR '__') AS productos FROM compras INNER JOIN productos_comprados ON productos_comprados.id_compra = compras.id INNER JOIN productos ON productos.id = productos_comprados.id_producto GROUP BY compras.id ORDER BY compras.id;");
+$compras = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 	<div class="col-xs-12">
@@ -23,10 +23,10 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach($ventas as $venta){ ?>
+				<?php foreach($compras as $compra){ ?>
 				<tr>
-					<td><?php echo $venta->id ?></td>
-					<td><?php echo $venta->fecha ?></td>
+					<td><?php echo $compra->id ?></td>
+					<td><?php echo $compra->fecha ?></td>
 					<td>
 						<table class="table table-bordered">
 							<thead>
@@ -37,7 +37,7 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach(explode("__", $venta->productos) as $productosConcatenados){ 
+								<?php foreach(explode("__", $compra->productos) as $productosConcatenados){ 
 								$producto = explode("..", $productosConcatenados)
 								?>
 								<tr>
@@ -49,9 +49,9 @@ $ventas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							</tbody>
 						</table>
 					</td>
-					<td><?php echo $venta->total ?></td>
-					<td><a class="btn btn-info" href="<?php echo "imprimirTicket.php?id=" . $venta->id?>"><i class="fa fa-print"></i></a></td>
-					<td><a class="btn btn-danger" href="<?php echo "eliminarVenta.php?id=" . $venta->id?>"><i class="fa fa-trash"></i></a></td>
+					<td><?php echo $compra->total ?></td>
+					<td><a class="btn btn-info" href="<?php echo "imprimirTicket.php?id=" . $compra->id?>"><i class="fa fa-print"></i></a></td>
+					<td><a class="btn btn-danger" href="<?php echo "eliminarCompra.php?id=" . $compra->id?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>

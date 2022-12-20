@@ -48,7 +48,7 @@ $granTotal = 0;
 	}
 	?>
 	<br>
-	<form method="post" action="agregarAlCarrito.php">
+	<form method="post" action="agregarAlCarritoC.php">
 		<label for="codigo">Código de barras:</label>
 		<input autocomplete="off" autofocus class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
 	</form>
@@ -59,7 +59,7 @@ $granTotal = 0;
 				<th>ID</th>
 				<th>Código</th>
 				<th>Descripción</th>
-				<th>Precio de venta</th>
+				<th>Precio de Compra</th>
 				<th>Cantidad</th>
 				<th>Total</th>
 				<th>Quitar</th>
@@ -73,9 +73,9 @@ $granTotal = 0;
 					<td><?php echo $producto->id ?></td>
 					<td><?php echo $producto->codigo ?></td>
 					<td><?php echo $producto->descripcion ?></td>
-					<td><?php echo $producto->precioVenta ?></td>
+					<td><?php echo $producto->precioCompra ?></td>
 					<td>
-						<form action="cambiar_cantidad.php" method="post">
+						<form action="cambiar_cantidadC.php" method="post">
 							<input name="indice" type="hidden" value="<?php echo $indice; ?>">
 							<input min="1" name="cantidad" class="form-control" required type="number" step="0.1" value="<?php echo $producto->cantidad; ?>">
 						</form>
