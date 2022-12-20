@@ -81,7 +81,7 @@ $granTotal = 0;
 						</form>
 					</td>
 					<td><?php echo $producto->total ?></td>
-					<td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
+					<td><a class="btn btn-danger" href="<?php echo "quitarDelCarritoVenta.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 			<?php } ?>
 		</tbody>

@@ -81,17 +81,17 @@ $granTotal = 0;
 						</form>
 					</td>
 					<td><?php echo $producto->total ?></td>
-					<td><a class="btn btn-danger" href="<?php echo "quitarDelCarrito.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
+					<td><a class="btn btn-danger" href="<?php echo "quitarDelCarritoCompra.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 			<?php } ?>
 		</tbody>
 	</table>
 
 	<h3>Total: <?php echo $granTotal; ?></h3>
-	<form action="./terminarVenta.php" method="POST">
+	<form action="./terminarCompra.php" method="POST">
 		<input name="total" type="hidden" value="<?php echo $granTotal; ?>">
 		<button type="submit" class="btn btn-success">Terminar Compra</button>
-		<a href="./cancelarVenta.php" class="btn btn-danger">Cancelar Compra</a>
+		<a href="./cancelarCompra.php" class="btn btn-danger">Cancelar Compra</a>
 	</form>
 </div>
 <?php include_once "pie.php" ?>
