@@ -5,18 +5,34 @@ if(!isset($_POST["email"]) || !isset($_POST["password"])) exit();
 #Si todo va bien, se ejecuta esta parte del código...
 
 include_once "base_de_datos.php";
+
 $email = $_POST["email"];
 $password = $_POST["password"];
+$sentencia = $base_de_datos->prepare("SELECT * FROM usuarios WHERE email = ?;");
+$sentencia->execute([$email]);
+$usuario = $sentencia->fetch(PDO::FETCH_OBJ);
 
-$sentencia = $base_de_datos->prepare("INSERT INTO productos(codigo, descripcion, precioVenta, precioCompra, existencia) VALUES (?, ?, ?, ?, ?);");
-$resultado = $sentencia->execute([$codigo, $descripcion, $precioVenta, $precioCompra, $existencia]);
 
-if($resultado === TRUE){
-	header("Location: ./listar.php");
-	exit;
+if($usuario === FALSE){
+	echo "¡El usuario o la contraseña son incorrectos!!!!!!";
+	echo "<br><a href='login.php'>Volver a intentarlo</a>";
+	
 }
-else echo "Algo salió mal. Por favor verifica que la tabla exista";
+else{
+	if($usuario == TRUE && $usuario->password == $password){
+		session_start();
+		$_SESSION["usuario"] = $usuario;
+		
+		header("Location: ./listar.php");
 
-
+		
+	}
+	else{
+		echo "¡El usuario o la contraseña son incorrectos!";
+		echo "<br><a href='login.php'>Volver a intentarlo</a>";
+		
+	}
+}
 ?>
+
 <?php include_once "pie.php" ?>

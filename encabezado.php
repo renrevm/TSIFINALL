@@ -1,11 +1,4 @@
 <?php
-/*
-	Pequeño, muy pequeño sistema de ventas en PHP con MySQL
-
-	@author parzibyte
-
-	No olvides visitar parzibyte.me/blog para más cosas como esta
-*/
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,6 +23,7 @@
 					<li><a href="./ventas.php">Ventas</a></li>
 					<li><a href="./comprar.php">Comprar</a></li>
 					<li><a href="./compras.php">Compras</a></li>
+					<li><a href="./logout.php">Cerrar Sesión</a></li>
 				</ul>
 			</div>
 		</div>

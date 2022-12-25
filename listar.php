@@ -1,5 +1,11 @@
 <?php include_once "encabezado.php" ?>
 <?php
+
+?>
+
+
+
+<?php
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT * FROM productos;");
 $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
