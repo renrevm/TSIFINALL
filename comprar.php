@@ -82,14 +82,14 @@ $granTotal = 0;
 					<td><?php echo $producto->id ?></td>
 					<td><?php echo $producto->codigo ?></td>
 					<td><?php echo $producto->descripcion ?></td>
-					<td><?php echo $producto->precioCompra ?></td>
+					<td>CLP$ <?php echo $producto->precioCompra ?></td>
 					<td>
 						<form action="cambiar_cantidadC.php" method="post">
 							<input name="indice" type="hidden" value="<?php echo $indice; ?>">
 							<input min="1" name="cantidad" class="form-control" required type="number" step="0.1" value="<?php echo $producto->cantidad; ?>">
 						</form>
 					</td>
-					<td><?php echo $producto->total ?></td>
+					<td>CLP$ <?php echo $producto->total ?></td>
 					<td><a class="btn btn-danger" href="<?php echo "quitarDelCarritoCompra.php?indice=" . $indice ?>"><i class="fa fa-trash"></i></a></td>
 				</tr>
 			<?php } ?>

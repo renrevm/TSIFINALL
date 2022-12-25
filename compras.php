@@ -58,7 +58,7 @@ $compras = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							</tbody>
 						</table>
 					</td>
-					<td><?php echo $compra->total ?></td>
+					<td>CLP$ <?php echo $compra->total ?></td>
 					
 					
 				</tr>
