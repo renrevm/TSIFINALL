@@ -1,6 +1,15 @@
 <?php
-session_start();
+
 include_once "encabezado.php";
+
+$usuario = $_SESSION["usuario"];
+if($usuario == TRUE){
+	echo "Bienvenido ".$usuario->email;
+	echo "<br><a href='logout.php'>Cerrar sesión</a>";
+} elseif ($usuario == FALSE) {
+	header("Location: ./login.php");
+}
+
 if (!isset($_SESSION["carrito"])) $_SESSION["carrito"] = [];
 $granTotal = 0;
 ?>

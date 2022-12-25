@@ -1,13 +1,17 @@
 <?php include_once "encabezado.php" ?>
+
 <?php
 
-if($ingreso == "ok"){
-	header("Location:listar.php");
-	//header("Location:listar.php");
-}else{
-	//header("Location:login.php");
-	echo "No tienes permiso para ver esta página";
+$usuario = $_SESSION["usuario"];
+if($usuario == TRUE){
+	echo "Bienvenido ".$usuario->email;
+	echo "<br><a href='logout.php'>Cerrar sesión</a>";
+} elseif ($usuario == FALSE) {
+	header("Location: ./login.php");
 }
+/*else{
+	header("Location: ./login.php");
+}*/
 
 
 ?>

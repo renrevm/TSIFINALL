@@ -1,4 +1,13 @@
-<?php include_once "encabezado.php" ?>
+<?php include_once "encabezado.php";
+
+$usuario = $_SESSION["usuario"];
+if($usuario == TRUE){
+	echo "Bienvenido ".$usuario->email;
+	echo "<br><a href='logout.php'>Cerrar sesión</a>";
+} elseif ($usuario == FALSE) {
+	header("Location: ./login.php");
+}
+?>
 <?php
 include_once "base_de_datos.php";
 $sentencia = $base_de_datos->query("SELECT ventas.total, ventas.fecha, ventas.id, GROUP_CONCAT(	productos.codigo, '..',  productos.descripcion, '..', productos_vendidos.cantidad SEPARATOR '__') AS productos FROM ventas INNER JOIN productos_vendidos ON productos_vendidos.id_venta = ventas.id INNER JOIN productos ON productos.id = productos_vendidos.id_producto GROUP BY ventas.id ORDER BY ventas.id;");
