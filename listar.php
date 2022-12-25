@@ -1,6 +1,15 @@
 <?php include_once "encabezado.php" ?>
 <?php
 
+if($ingreso == "ok"){
+	header("Location:listar.php");
+	//header("Location:listar.php");
+}else{
+	//header("Location:login.php");
+	echo "No tienes permiso para ver esta página";
+}
+
+
 ?>
 
 

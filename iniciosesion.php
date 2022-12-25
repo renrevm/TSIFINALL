@@ -22,8 +22,9 @@ else{
 	if($usuario == TRUE && $usuario->password == $password){
 		session_start();
 		$_SESSION["usuario"] = $usuario;
-		
+		$ingreso = "ok";
 		header("Location: ./listar.php");
+		
 
 		
 	}
