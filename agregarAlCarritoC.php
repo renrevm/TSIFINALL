@@ -14,10 +14,10 @@ if (!$producto) {
     exit;
 }
 # Si no hay existencia...
-if ($producto->existencia < 1) {
+/*if ($producto->existencia < 1) {
     header("Location: ./comprar.php?status=5");
     exit;
-}
+}*/
 session_start();
 # Buscar producto dentro del cartito
 $indice = false;

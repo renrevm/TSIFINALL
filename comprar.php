@@ -41,16 +41,16 @@ $granTotal = 0;
 				<strong>Error:</strong> El producto que buscas no existe
 			</div>
 		<?php
-		} else if ($_GET["status"] === "5") {
+		}/* else if ($_GET["status"] === "5") {
 		?>
 			<div class="alert alert-danger">
 				<strong>Error: </strong>El producto está agotado
 			</div>
 		<?php
-		} else {
+		}*/ else {
 		?>
 			<div class="alert alert-danger">
-				<strong>Error:</strong> Algo salió mal mientras se realizaba la venta
+				<strong>Error:</strong> Algo salió mal mientras se realizaba la compra
 			</div>
 	<?php
 		}
