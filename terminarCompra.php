@@ -12,8 +12,8 @@ include_once "base_de_datos.php";
 $ahora = date("Y-m-d H:i:s");
 
 
-$sentencia = $base_de_datos->prepare("INSERT INTO compras(fecha, total) VALUES (?, ?);");
-$sentencia->execute([$ahora, $total]);
+$sentencia = $base_de_datos->prepare("INSERT INTO compras(fecha, total, idusuario) VALUES (?, ?, ?);");
+$sentencia->execute([$ahora, $total, $_SESSION["usuario"]->id]);
 
 $sentencia = $base_de_datos->prepare("SELECT id FROM compras ORDER BY id DESC LIMIT 1;");
 $sentencia->execute();
