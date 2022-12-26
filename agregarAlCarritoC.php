@@ -19,7 +19,7 @@ if (!$producto) {
     exit;
 }*/
 session_start();
-# Buscar producto dentro del cartito
+# Buscar producto dentro del carrito
 $indice = false;
 for ($i = 0; $i < count($_SESSION["carrito"]); $i++) {
     if ($_SESSION["carrito"][$i]->codigo === $codigo) {
