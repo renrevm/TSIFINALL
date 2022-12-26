@@ -3,7 +3,7 @@
 include_once "encabezado.php";
 
 $usuario = $_SESSION["usuario"];
-if($usuario == TRUE){
+if($usuario == TRUE && ($usuario->rol == "admin" || $usuario->rol == "manager" )){
 	echo "Bienvenido ".$usuario->email;
 	echo "<br><a href='logout.php'>Cerrar sesión</a>";
 } elseif ($usuario == FALSE) {

@@ -20,14 +20,31 @@ session_start();
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 				<?php if(isset($_SESSION["usuario"])){
-    					if($_SESSION["usuario"] == true){
-        ?>               <li><a href="./listar.php">Productos</a></li>
+    					if($_SESSION["usuario"] == true && $_SESSION["usuario"]->rol == "manager"){
+        ?>              
+						<li><a href="./gestion.php">Gestión usuarios</a></li> 
+						<li><a href="./listar.php">Productos</a></li>
 						<li><a href="./vender.php">Vender</a></li>
 						<li><a href="./ventas.php">Ventas</a></li>
 						<li><a href="./comprar.php">Comprar</a></li>
 						<li><a href="./compras.php">Compras</a></li>
 						<li><a href="./logout.php">Cerrar Sesión</a></li>
 		<?php    } } ?>
+		<?php if(isset($_SESSION["usuario"])){
+    					if($_SESSION["usuario"] == true && $_SESSION["usuario"]->rol == "admin"){
+        ?>               <li><a href="./listar.php">Productos</a></li>
+						<li><a href="./comprar.php">Comprar</a></li>
+						<li><a href="./compras.php">Compras</a></li>
+						<li><a href="./logout.php">Cerrar Sesión</a></li>
+		<?php    } } ?>
+		<?php if(isset($_SESSION["usuario"])){
+    					if($_SESSION["usuario"] == true && $_SESSION["usuario"]->rol == "seller"){
+        ?>               <li><a href="./listar.php">Productos</a></li>
+						<li><a href="./vender.php">Vender</a></li>
+						<li><a href="./ventas.php">Ventas</a></li>
+						<li><a href="./logout.php">Cerrar Sesión</a></li>
+		<?php    } } ?>
+		
 
 					
 					

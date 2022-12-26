@@ -1,10 +1,12 @@
 <?php include_once "encabezado.php";
 
 $usuario = $_SESSION["usuario"];
-if($usuario == TRUE){
+if($usuario == TRUE && ($usuario->rol == "seller" || $usuario->rol == "manager" )){
 	echo "Bienvenido ".$usuario->email;
 	echo "<br><a href='logout.php'>Cerrar sesión</a>";
 } elseif ($usuario == FALSE) {
+	header("Location: ./login.php");
+}else{
 	header("Location: ./login.php");
 }
 ?>

@@ -6,7 +6,7 @@
 		<label for="correo">Correo electrónico:</label>
 		<input class="form-control" name="email" required type="text" id="email" placeholder="Escribe el email:">
 		<label for="codigo">Contraseña:</label>
-		<input class="form-control" name="password" required type="text" id="password" placeholder="Escribe la contraseña:">
+		<input class="form-control" name="password" required type="password" id="password" placeholder="Escribe la contraseña:">
 
 		
 		<br><br><input class="btn btn-info" type="submit" value="Entrar">
