@@ -12,7 +12,19 @@ $precioCompra = $_POST["precioCompra"];
 $existencia = $_POST["existencia"];
 
 $sentencia = $base_de_datos->prepare("INSERT INTO productos(codigo, descripcion, precioVenta, precioCompra, existencia) VALUES (?, ?, ?, ?, ?);");
-$resultado = $sentencia->execute([$codigo, $descripcion, $precioVenta, $precioCompra, $existencia]);
+
+
+try{
+	$resultado = $sentencia->execute([$codigo, $descripcion, $precioVenta, $precioCompra, $existencia]);
+}catch(Exception $e){
+	echo "El código ingresado ya existe en la base de datos: " . $e->getMessage();
+	echo "<br><a href='formulario.php'>Volver a intentarlo</a>";
+	exit;
+}
+
+
+
+
 
 if($resultado === TRUE){
 	header("Location: ./listar.php");

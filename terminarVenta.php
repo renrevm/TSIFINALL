@@ -1,14 +1,8 @@
 <?php
 if(!isset($_POST["total"])) exit;
-
-
 session_start();
-
-
 $total = $_POST["total"];
 include_once "base_de_datos.php";
-
-
 $ahora = date("Y-m-d H:i:s");
 
 
