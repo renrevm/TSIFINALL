@@ -1,7 +1,7 @@
 <?php
-if (!isset($_POST["cantidad"])) {
+/*if (!isset($_POST["cantidad"])) {
 	exit("No hay cantidad");
-}
+}*/
 if (!isset($_POST["indice"])) {
 	exit("No hay índice");
 }
