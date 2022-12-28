@@ -29,6 +29,7 @@ session_start();
 						<li><a href="./listarclientes.php">Clientes</a></li>
 						<li><a href="./comprar.php">Comprar</a></li>
 						<li><a href="./compras.php">Compras</a></li>
+						<li><a href="./listarproveedores.php">Proveedores</a></li>
 						<li><a href="./logout.php">Cerrar Sesión</a></li>
 		<?php    } } ?>
 		<?php if(isset($_SESSION["usuario"])){
@@ -36,6 +37,7 @@ session_start();
         ?>               <li><a href="./listar.php">Productos</a></li>
 						<li><a href="./comprar.php">Comprar</a></li>
 						<li><a href="./compras.php">Compras</a></li>
+						<li><a href="./listarproveedores.php">Proveedores</a></li>
 						<li><a href="./logout.php">Cerrar Sesión</a></li>
 		<?php    } } ?>
 		<?php if(isset($_SESSION["usuario"])){

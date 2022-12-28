@@ -5,15 +5,16 @@ if(!isset($_POST["total"])) exit;
 session_start();
 
 
+
 $total = $_POST["total"];
 include_once "base_de_datos.php";
 
-
+$proveedor = $_POST["proveedor"];
 $ahora = date("Y-m-d H:i:s");
 
 
-$sentencia = $base_de_datos->prepare("INSERT INTO compras(fecha, total, idusuario) VALUES (?, ?, ?);");
-$sentencia->execute([$ahora, $total, $_SESSION["usuario"]->id]);
+$sentencia = $base_de_datos->prepare("INSERT INTO compras(fecha, total, idusuario, idpro) VALUES (?, ?, ?, ?);");
+$sentencia->execute([$ahora, $total, $_SESSION["usuario"]->id, $proveedor]);
 
 $sentencia = $base_de_datos->prepare("SELECT id FROM compras ORDER BY id DESC LIMIT 1;");
 $sentencia->execute();

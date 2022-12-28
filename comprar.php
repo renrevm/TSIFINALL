@@ -1,6 +1,8 @@
 <?php
 
 include_once "encabezado.php";
+include_once "base_de_datos.php";
+$proveedores = $base_de_datos->query("SELECT * FROM proveedores;")->fetchAll(PDO::FETCH_OBJ);
 
 $usuario = $_SESSION["usuario"];
 if($usuario == TRUE && ($usuario->rol == "admin" || $usuario->rol == "manager" )){
@@ -10,7 +12,7 @@ if($usuario == TRUE && ($usuario->rol == "admin" || $usuario->rol == "manager" )
 	header("Location: ./login.php");
 }
 
-if (!isset($_SESSION["carrito"])) $_SESSION["carrito"] = [];
+if (!isset($_SESSION["carritoC"])) $_SESSION["carritoC"] = [];
 $granTotal = 0;
 ?>
 <div class="col-xs-12">
@@ -58,6 +60,14 @@ $granTotal = 0;
 	?>
 	<br>
 	<form method="post" action="agregarAlCarritoC.php">
+		<label for="proveedor">Proveedor:</label>
+			<select required id="proveedor" name="proveedor" cols="30" rows="5" class="form-control">
+				<?php foreach ($proveedores as $proveedor) { ?>
+					<option value="<?php echo $proveedor->rutprov ?>" selected><?php echo $proveedor->nombreprov ?></option>
+				<?php } ?>
+			</select>
+
+
 		<label for="codigo">Código de barras:</label>
 		<input autocomplete="off" autofocus class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
 	</form>

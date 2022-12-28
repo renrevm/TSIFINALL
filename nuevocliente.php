@@ -14,7 +14,7 @@ $sentencia = $base_de_datos->prepare("INSERT INTO clientes(idcli, nombrecliente,
 $resultado = $sentencia->execute([$rutcliente, $nombre, $direccion, $fono]);
 
 if($resultado === TRUE){
-	header("Location: ./clientes.php");
+	header("Location: ./listarclientes.php");
 	exit;
 }
 else echo "Algo salió mal. Por favor verifica que la tabla exista";
