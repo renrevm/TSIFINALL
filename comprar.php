@@ -12,7 +12,7 @@ if($usuario == TRUE && ($usuario->rol == "admin" || $usuario->rol == "manager" )
 	header("Location: ./login.php");
 }
 
-if (!isset($_SESSION["carritoC"])) $_SESSION["carritoC"] = [];
+if (!isset($_SESSION["carrito"])) $_SESSION["carrito"] = [];
 $granTotal = 0;
 ?>
 <div class="col-xs-12">
@@ -63,7 +63,7 @@ $granTotal = 0;
 		<label for="proveedor">Proveedor:</label>
 			<select required id="proveedor" name="proveedor" cols="30" rows="5" class="form-control">
 				<?php foreach ($proveedores as $proveedor) { ?>
-					<option value="<?php echo $proveedor->rutprov ?>" selected><?php echo $proveedor->nombreprov ?></option>
+					<option value="<?php echo $proveedor->rutprov ?>"><?php echo $proveedor->nombreprov ?></option>
 				<?php } ?>
 			</select>
 
