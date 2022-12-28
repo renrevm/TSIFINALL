@@ -1,5 +1,7 @@
 <?php
 include_once "encabezado.php";
+include_once "base_de_datos.php";
+$clientes = $base_de_datos->query("SELECT * FROM clientes;")->fetchAll(PDO::FETCH_OBJ);
 
 $usuario = $_SESSION["usuario"];
 if($usuario == TRUE && ($usuario->rol == "seller" || $usuario->rol == "manager" )){
@@ -58,6 +60,13 @@ $granTotal = 0;
 	?>
 	<br>
 	<form method="post" action="agregarAlCarrito.php">
+		<label for="rol">Cliente:</label>
+			<select required id="rol" name="rol" cols="30" rows="5" class="form-control">
+				<?php foreach ($clientes as $cliente) { ?>
+					<option value="<?php echo $cliente->idcli ?>"><?php echo $cliente->nombrecliente ?></option>
+				<?php } ?>
+			</select>
+
 		<label for="codigo">Código de barras:</label>
 		<input autocomplete="off" autofocus class="form-control" name="codigo" required type="text" id="codigo" placeholder="Escribe el código">
 	</form>

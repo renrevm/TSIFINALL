@@ -26,6 +26,7 @@ session_start();
 						<li><a href="./listar.php">Productos</a></li>
 						<li><a href="./vender.php">Vender</a></li>
 						<li><a href="./ventas.php">Ventas</a></li>
+						<li><a href="./listarclientes.php">Clientes</a></li>
 						<li><a href="./comprar.php">Comprar</a></li>
 						<li><a href="./compras.php">Compras</a></li>
 						<li><a href="./logout.php">Cerrar Sesión</a></li>
@@ -42,6 +43,7 @@ session_start();
         ?>               <li><a href="./listar.php">Productos</a></li>
 						<li><a href="./vender.php">Vender</a></li>
 						<li><a href="./ventas.php">Ventas</a></li>
+						<li><a href="./listarclientes.php">Clientes</a></li>
 						<li><a href="./logout.php">Cerrar Sesión</a></li>
 		<?php    } } ?>
 		
