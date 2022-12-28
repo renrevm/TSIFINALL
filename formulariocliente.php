@@ -4,7 +4,7 @@
 	<h1>Nuevo Cliente</h1>
 	<form method="post" action="nuevocliente.php">
 		<label for="rutcliente">Rut cliente:</label>
-		<input class="form-control" name="rutcliente" required type="number" id="rutcliente" placeholder="Rut del cliente">
+		<input class="form-control" name="rutcliente" required type="number" min="0" id="rutcliente" placeholder="Rut del cliente">
 
 		<label for="nombre">Nombre:</label>
 		<textarea required id="nombre" name="nombre" cols="30" rows="5" class="form-control"></textarea>
@@ -13,7 +13,7 @@
 		<textarea required id="direccion" name="direccion" cols="30" rows="5" class="form-control"></textarea>
 
 		<label for="fono">Fono:</label>
-		<input class="form-control" name="fono" required type="number" id="fono" placeholder="Numero del cliente">
+		<input class="form-control" name="fono" required type="number" min="0" id="fono" placeholder="Numero del cliente">
 
 		<br><br><input class="btn btn-info" type="submit" value="Guardar">
 	</form>
