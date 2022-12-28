@@ -11,7 +11,16 @@ $rol = $_POST["rol"];
 
 $sentencia = $base_de_datos->prepare("INSERT INTO usuarios(email, password, rol) VALUES (?, ?, ?);");
 
-$resultado = $sentencia->execute([$email, $password, $rol]);
+
+
+try{
+	$resultado = $sentencia->execute([$email, $password, $rol]);
+}catch(Exception $e){
+	echo "El correo ingresado ya existe en la base de datos: " . $e->getMessage();
+	echo "<br><a href='formularioP.php'>Volver a intentarlo</a>";
+	exit;
+}
+
 
 
 
