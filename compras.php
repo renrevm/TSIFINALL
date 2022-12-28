@@ -20,7 +20,7 @@ $compras = $sentencia->fetchAll(PDO::FETCH_OBJ);
 			<a class="btn btn-success" href="./comprar.php">Nueva Compra <i class="fa fa-plus"></i></a>
 		</div>
 		<br>
-		<table class="table table-bordered">
+		<table class="table table-bordered" id="tablaxd1">
 			<thead>
 				<tr>
 					<th>Número</th>
@@ -63,7 +63,33 @@ $compras = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					
 				</tr>
 				<?php } ?>
+			<form>Busqueda: <input id="txtBusqueda" type="text" onkeyup="Buscar();" /></form>
 			</tbody>
 		</table>
 	</div>
 <?php include_once "pie.php" ?>
+
+<script type="text/javascript">// < ![CDATA[
+function Buscar() {
+            var tabla = document.getElementById('tablaxd1');
+            var busqueda = document.getElementById('txtBusqueda').value.toLowerCase();
+            var cellsOfRow="";
+            var found=false;
+            var compareWith="";
+            for (var i = 1; i < tabla.rows.length; i++) {
+                cellsOfRow = tabla.rows[i].getElementsByTagName('td');
+                found = false;
+                for (var j = 0; j < cellsOfRow.length && !found; j++) { compareWith = cellsOfRow[j].innerHTML.toLowerCase(); if (busqueda.length == 0 || (compareWith.indexOf(busqueda) > -1))
+                    {
+                        found = true;
+                    }
+                }
+                if(found)
+                {
+                    tabla.rows[i].style.display = '';
+                } else {
+                    tabla.rows[i].style.display = 'none';
+                }
+            }
+        }
+// ]]></script>
