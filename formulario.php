@@ -9,6 +9,14 @@
 		<label for="descripcion">Descripción:</label>
 		<textarea required id="descripcion" name="descripcion" cols="30" rows="5" class="form-control"></textarea>
 
+		<label for="categoria">Categoría:</label>
+		<select required id="categoria" name="categoria" cols="30" rows="5" class="form-control">
+			<option value="1">Carnes</option>
+			<option value="2">Accesorios</option>
+			<option value="3">Bebidas</option>
+			<option value="4">Picoteo</option>
+		</select>
+
 		<label for="precioVenta">Precio de venta:</label>
 		<input class="form-control" name="precioVenta" required type="number" id="precioVenta" placeholder="Precio de venta">
 

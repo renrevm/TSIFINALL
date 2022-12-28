@@ -20,7 +20,7 @@ else{
 
 <?php
 include_once "base_de_datos.php";
-$sentencia = $base_de_datos->query("SELECT * FROM productos p, categorias c WHERE p.idcat = c.id;");
+$sentencia = $base_de_datos->query("SELECT * FROM productos p, categorias c WHERE p.idcat = c.idc;");
 $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 

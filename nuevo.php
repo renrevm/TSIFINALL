@@ -7,15 +7,16 @@ if(!isset($_POST["codigo"]) || !isset($_POST["descripcion"]) || !isset($_POST["p
 include_once "base_de_datos.php";
 $codigo = $_POST["codigo"];
 $descripcion = $_POST["descripcion"];
+$categoria = $_POST["categoria"];
 $precioVenta = $_POST["precioVenta"];
 $precioCompra = $_POST["precioCompra"];
 $existencia = $_POST["existencia"];
 
-$sentencia = $base_de_datos->prepare("INSERT INTO productos(codigo, descripcion, precioVenta, precioCompra, existencia) VALUES (?, ?, ?, ?, ?);");
+$sentencia = $base_de_datos->prepare("INSERT INTO productos(codigo, descripcion, idcat, precioVenta, precioCompra, existencia) VALUES (?, ?, ?, ?, ?, ?);");
 
 
 try{
-	$resultado = $sentencia->execute([$codigo, $descripcion, $precioVenta, $precioCompra, $existencia]);
+	$resultado = $sentencia->execute([$codigo, $descripcion, $categoria, $precioVenta, $precioCompra, $existencia]);
 }catch(Exception $e){
 	echo "El código ingresado ya existe en la base de datos: " . $e->getMessage();
 	echo "<br><a href='formulario.php'>Volver a intentarlo</a>";
