@@ -20,7 +20,7 @@ else{
 
 <?php
 include_once "base_de_datos.php";
-$sentencia = $base_de_datos->query("SELECT * FROM productos;");
+$sentencia = $base_de_datos->query("SELECT * FROM productos p, categorias c WHERE p.idcat = c.id;");
 $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 
@@ -36,6 +36,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					<th>ID</th>
 					<th>Código</th>
 					<th>Descripción</th>
+					<th>Categoría</th>
 					<th>Precio de compra</th>
 					<th>Precio de venta</th>
 					<th>Existencia</th>
@@ -49,6 +50,7 @@ $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					<td><?php echo $producto->id ?></td>
 					<td><?php echo $producto->codigo ?></td>
 					<td><?php echo $producto->descripcion ?></td>
+					<td><?php echo $producto->nombrecat ?></td>
 					<td>CLP$ <?php echo $producto->precioCompra ?></td>
 					<td>CLP$ <?php echo $producto->precioVenta ?></td>
 					<td><?php echo $producto->existencia ?></td>
